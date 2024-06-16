@@ -33,12 +33,28 @@
         height: 28.5rem;
         width: 20rem;
         animation: skeleton-loading 0.8s linear infinite alternate;
+        &_colored{
+          animation: skeleton-loading-colored 0.8s linear infinite alternate;
+        }
       }
     }
   }
 }
 
+.hide{
+  transform: scale(0);
+}
+
 @keyframes skeleton-loading {
+  0% {
+    background-color: #ffffff;
+  }
+  100% {
+    background-color: #a4a4a4;
+  }
+}
+
+@keyframes skeleton-loading-colored {
   0% {
     background-color: #fdfcf3;
   }

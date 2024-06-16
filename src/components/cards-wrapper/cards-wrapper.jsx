@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { useMTGService } from "../../services/MTGService";
@@ -7,7 +7,6 @@ import "./cards-wrapper.scss";
 
 const CardWrapper = () => {
   const [cards, setCards] = useState([]);
-  const [imgLoading, setImgLoading] = useState(true);
   const { loading, error, getCards, clearError } = useMTGService();
 
   useEffect(() => {
@@ -19,13 +18,9 @@ const CardWrapper = () => {
     getCards().then(setCards);
   };
 
-  const imgLoaded = () => setImgLoading(false);
-
   const errorMessage = error ? <div>{error.text}</div> : null;
-  const skeleton = loading || imgLoading ? <SkeletonLoading /> : null;
-  const content = !( error ) ? (
-    <View cards={cards} imgLoaded={imgLoaded} />
-  ) : null;
+  const skeleton = loading ? <SkeletonLoading /> : null;
+  const content = !error ? <View cards={cards} /> : null;
 
   return (
     <ul className="cards_wrapper">
@@ -51,31 +46,46 @@ const SkeletonLoading = () => {
   }
   return temp;
 };
-//Блять как то надо разделить логику вью и загрузке как то
-const View = ({ cards, imgLoaded }) => {
-  const ref = useRef(0);
+
+const View = ({ cards }) => {
   if (Object.keys(cards).length === 0) return <></>;
 
-  const handleLoading = () => {
-    ref.current = ref.current + 1;
-    const D = ref.current - 10;
-    if (8 === D) imgLoaded();
-  };
-
-  return cards.map(({ name, id, imageUrl }) => {
+  return cards.map(({ id, name, imageUrl }) => {
     return (
       <li key={id} className="cards_wrapper_card">
-        <img
-          className="cards_wrapper_card_image"
-          src={imageUrl}
-          alt={name}
-          onLoad={handleLoading}
-        />
+        <ImageComponent src={imageUrl} alt={name} />
       </li>
     );
   });
 };
-
 View.propTypes = {
   cards: PropTypes.array,
+};
+
+const ImageComponent = ({ src, alt }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = src;
+    image.onload = () => {
+      setIsLoaded(true);
+    };
+  }, [src]);
+
+  return (
+    <>
+      {isLoaded ? (
+        <img src={src} alt={alt} />
+      ) : (
+        <div className="cards_wrapper_card_loading">
+          <div className="cards_wrapper_card_loading_inner cards_wrapper_card_loading_inner_colored" />
+        </div>
+      )}
+    </>
+  );
+};
+ImageComponent.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
 };

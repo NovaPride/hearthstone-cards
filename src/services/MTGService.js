@@ -22,7 +22,7 @@ export const useMTGService = () => {
   //   nigger();
   // }, []);
 
-  const getCards = async (page = 1, perPage = 18) => {
+  const getCards = async (page = 1, perPage = 36) => {
     const res = await request(`${_apiBase}/cards?contains=imageUrl&pageSize=${perPage}&page=${page}`);
     return res.cards;
     // return res.cards.map(_transformCard);
