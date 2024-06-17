@@ -18,9 +18,12 @@
     color: black;
     height: auto;
     width: auto;
-    border: none;
-    border-radius: 1rem;
-    overflow: hidden;
+    &_tilt{
+      height: 100%;
+      border: none;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
     &_image{
       display: block;
     }

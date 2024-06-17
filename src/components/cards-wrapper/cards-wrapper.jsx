@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Tilt from "react-parallax-tilt";
 import PropTypes from "prop-types";
 
 import { useMTGService } from "../../services/MTGService";
@@ -76,7 +77,9 @@ const ImageComponent = ({ src, alt }) => {
   return (
     <>
       {isLoaded ? (
-        <img src={src} alt={alt} />
+        <Tilt className="cards_wrapper_card_tilt" tiltReverse={true} scale={1.05}>
+          <img src={src} alt={alt} />
+        </Tilt>
       ) : (
         <div className="cards_wrapper_card_loading">
           <div className="cards_wrapper_card_loading_inner cards_wrapper_card_loading_inner_colored" />
