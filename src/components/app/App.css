@@ -1,6 +1,10 @@
-#root {
-  width: 1440px;
+#root{
+  text-align: center;
+}
+
+.main {
+  background-color: #fff;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
