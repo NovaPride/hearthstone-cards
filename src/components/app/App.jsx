@@ -8,20 +8,18 @@ import "./app.css";
 
 const App = () => {
   return (
-    <>
+    <Router>
       <Header />
       <div className="main">
-        <Router>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            {/* <Route path="/comics" element={<ComicsPage/>}/>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          {/* <Route path="/comics" element={<ComicsPage/>}/>
             <Route path="/comics/:comicId" element={<SingleComicPage/>}/>
             <Route path="/character/:characterId" element={<SingleCharacterPage/>}/>
             <Route path="*" element={<Page404/>}/> */}
-          </Routes>
-        </Router>
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 };
 
