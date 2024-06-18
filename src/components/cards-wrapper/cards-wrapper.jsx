@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import Tilt from "react-parallax-tilt";
 import PropTypes from "prop-types";
+
+import Tilt from "react-parallax-tilt";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import { useMTGService } from "../../services/MTGService";
 
@@ -8,6 +10,7 @@ import "./cards-wrapper.scss";
 
 const CardWrapper = () => {
   const [cards, setCards] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const { loading, error, getCards, clearError } = useMTGService();
 
   useEffect(() => {
@@ -19,16 +22,37 @@ const CardWrapper = () => {
     getCards().then(setCards);
   };
 
+  const onLoadMore = () => {
+    getCards(currentPage + 1)
+      .then((newCards) => {
+        setCards((cards) => cards.concat(newCards));
+      })
+      .then(() => {
+        setCurrentPage((currentPage) => currentPage + 1);
+      });
+  };
+
   const errorMessage = error ? <div>{error.text}</div> : null;
   const skeleton = loading ? <SkeletonLoading /> : null;
   const content = !error ? <View cards={cards} /> : null;
 
   return (
-    <ul className="cards_wrapper">
-      {errorMessage}
-      {skeleton}
-      {content}
-    </ul>
+    <InfiniteScroll
+      dataLength={cards.length} //This is important field to render the next data
+      next={onLoadMore}
+      hasMore={true}
+      loader={<div className="cards_wrapper_card_loadtext">Loading...</div>}
+      endMessage={
+        <p style={{ textAlign: "center" }}>
+          <b>Yay! You have seen it all</b>
+        </p>
+      }>
+      <ul className="cards_wrapper">
+        {errorMessage}
+        {skeleton}
+        {content}
+      </ul>
+    </InfiniteScroll>
   );
 };
 
@@ -77,8 +101,11 @@ const ImageComponent = ({ src, alt }) => {
   return (
     <>
       {isLoaded ? (
-        <Tilt className="cards_wrapper_card_tilt" tiltReverse={true} scale={1.05}>
-          <img src={src} alt={alt} />
+        <Tilt
+          className="cards_wrapper_card_tilt"
+          tiltReverse={true}
+          scale={1.05}>
+          <img className="cards_wrapper_card_image" src={src} alt={alt} />
         </Tilt>
       ) : (
         <div className="cards_wrapper_card_loading">

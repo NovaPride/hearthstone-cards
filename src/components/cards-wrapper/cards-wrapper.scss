@@ -27,6 +27,15 @@
     }
     &_image{
       display: block;
+      width: 100%;
+      height: 100%;
+    }
+    &_loadtext{
+      padding: 1.2rem 0 1.4rem;
+      text-align: center;
+      font-family: Beleren SmallCaps;
+      font-size: 5.4rem;
+      animation: loading 0.8s linear infinite alternate;
     }
     &_loading{
       display: flex;
@@ -51,6 +60,15 @@
 
 .hide{
   transform: scale(0);
+}
+
+@keyframes loading {
+  0% {
+    color: $card-loading-first-color;
+  }
+  100% {
+    color: $card-loading-second-color;
+  }
 }
 
 @keyframes skeleton-loading {
