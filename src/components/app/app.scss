@@ -1,0 +1,16 @@
+@import "../../style/variables.scss";
+
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  background-color: $lighter-bg;
+  max-width: 1440px;
+  width: 100%;
+  padding: 2rem;
+}
