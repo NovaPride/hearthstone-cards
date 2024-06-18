@@ -1,16 +1,14 @@
 @import "../../style/variables.scss";
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
 }
 
 .main {
-  background-color: $lighter-bg;
-  max-width: 1440px;
+  max-width: 1400px;
   width: 100%;
-  padding: 2rem;
+  min-height: calc(100vh - 95px - 62px);
 }

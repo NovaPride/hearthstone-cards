@@ -36,7 +36,7 @@ export default CardWrapper;
 
 const SkeletonLoading = () => {
   const temp = [];
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 96; i++) {
     temp.push(
       <li key={i} className="cards_wrapper_card">
         <div className="cards_wrapper_card_loading">

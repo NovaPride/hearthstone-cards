@@ -1,2 +1,15 @@
 @import "../../style/variables.scss";
 
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: $darker-bg;
+  padding: 0.5rem 0 1.2rem;
+  display: flex;
+  justify-content: center;
+  &_text {
+    color: $footer-text-color;
+    padding: 1rem 0 1.25rem;
+    font-size: 1.5rem;
+  }
+}

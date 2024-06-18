@@ -7,14 +7,16 @@ import "./header.scss";
 const Header = () => {
   return (
     <header className="header">
-      <Link to="/" className="header_logo">
-        <img
-          src={magic_logo}
-          alt="Magic the gathering logo"
-          className="header_logo_image"
-        />
-      </Link>
-      <Navbar />
+      <div className="header_wrapper">
+        <Link to="/" className="header_logo">
+          <img
+            src={magic_logo}
+            alt="Magic the gathering logo"
+            className="header_logo_image"
+          />
+        </Link>
+        <Navbar />
+      </div>
     </header>
   );
 };
@@ -24,27 +26,20 @@ const Navbar = () => {
     <nav className="navbar">
       <ul className="navbar_wrapper">
         <li className="navbar_wrapper_elem">
-          <Link to="/" className="navbar_wrapper_elem_link">Mainpage</Link>
+          <Link to="/" className="navbar_wrapper_elem_link">
+            Mainpage
+          </Link>
         </li>
         <li className="navbar_wrapper_elem">
-          <Link to="/test" className="navbar_wrapper_elem_link">test</Link>
+          <Link to="/search" className="navbar_wrapper_elem_link">
+            Search
+          </Link>
         </li>
         <li className="navbar_wrapper_elem">
-          <Link to="/test" className="navbar_wrapper_elem_link">test</Link>
+          <Link to="/build" className="navbar_wrapper_elem_link">
+            Deck Build
+          </Link>
         </li>
-        <li className="navbar_wrapper_elem">
-          <Link to="/test" className="navbar_wrapper_elem_link">test</Link>
-        </li>
-        <li className="navbar_wrapper_elem">
-          <Link to="/test" className="navbar_wrapper_elem_link">test</Link>
-        </li>
-        <li className="navbar_wrapper_elem">
-          <Link to="/test" className="navbar_wrapper_elem_link">test</Link>
-        </li>
-        <li className="navbar_wrapper_elem">
-          <Link to="/test" className="navbar_wrapper_elem_link">test</Link>
-        </li>
-       
       </ul>
     </nav>
   );

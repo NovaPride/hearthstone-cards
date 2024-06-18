@@ -1,0 +1,35 @@
+@import "../../style/variables.scss";
+
+.page404 {
+  font-family: Beleren SmallCaps;
+  color: $text-color;
+  padding: 8rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_header {
+    font-size: 2.4rem;
+  }
+  &_headling {
+    margin: 0;
+    font-size: 6rem;
+  }
+  &_text {
+    font-family: Beleren;
+    font-size: 1.8rem;
+  }
+  &_back {
+    font-family: Beleren;
+    margin-top: 2rem;
+    width: 27rem;
+    height: 6rem;
+    background-color: $alter-button-color;
+    border: solid 0.3rem $button-color ;
+    color: $link-color;
+    border-radius: 13rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+  }
+}

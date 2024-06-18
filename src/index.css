@@ -4,9 +4,12 @@
   --lighter-bg: #fff;
   --main-color: #f18928;
   --text-color: #ffffff;
-  --link-color: #646cff;
-  --link-active-color: #535bf2;
+  --alter-text-color: #000000;
+  --footer-text-color: #adadad;
+  --link-color: #d5873e;
+  --link-active-color: #fb9b41;
   --button-color: #1a1a1a;
+  --alter-button-color: #353535;
   --button-active-color: #646cff;
   --card-wrapper-bg: #fff;
   --card-loading-border-color: #000;

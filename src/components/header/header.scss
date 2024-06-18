@@ -1,43 +1,48 @@
 @import "../../style/variables.scss";
 
-.header{
+.header {
   width: 100%;
-  height: auto;
   background-color: $darker-bg;
-  padding: 0.5rem 0 1.2rem;
-  display: flex;
-  justify-content: center;
-  &_logo{
+  &_wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 2rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  &_logo {
     color: $text-color;
     width: 23rem;
     height: 7.8rem;
     margin-right: 10%;
-    &_image{
+    &_image {
       height: 100%;
     }
   }
 }
 
-.navbar{
+.navbar {
   height: 100%;
   width: auto;
-  &_wrapper{
+  &_wrapper {
     margin-top: 2.4rem;
     display: flex;
-    &_elem{
+    &_elem {
       display: block;
-      &_link{
+      &_link {
+        font-family: Beleren;
         display: block;
         color: $text-color;
-        font-size: 2.4rem;
+        font-size: 2.7rem;
         padding: 0 2rem;
         transition: 0.3s all;
-        &:hover{
+        &:hover {
           transform: translateY(-5%);
           color: $main-color;
         }
       }
     }
   }
-
 }
