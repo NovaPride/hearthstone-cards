@@ -1,6 +1,8 @@
+@import "../../style/variables.scss";
+
 .cards_wrapper{
   margin-top: 0;
-  background-color: #ffffff;
+  background-color: $card-wrapper-bg;
   max-width: 100%;
   min-width: 12rem;
   min-height: 15rem;
@@ -15,7 +17,6 @@
   justify-content: center;
   &_card{
     display: block;
-    color: black;
     height: auto;
     width: auto;
     &_tilt{
@@ -35,7 +36,7 @@
       border-radius: 1rem;
       height: 31.0rem;
       width: 22.3rem;
-      background-color: #000;
+      background-color: $card-loading-border-color;
       &_inner{
         height: 28.5rem;
         width: 20rem;
@@ -54,18 +55,18 @@
 
 @keyframes skeleton-loading {
   0% {
-    background-color: #ffffff;
+    background-color: $card-loading-first-color;
   }
   100% {
-    background-color: #a4a4a4;
+    background-color: $card-loading-second-color;
   }
 }
 
 @keyframes skeleton-loading-colored {
   0% {
-    background-color: #fdfcf3;
+    background-color: $card-loading-colored-first-color;
   }
   100% {
-    background-color: #ebe3cc;
+    background-color: $card-loading-colored-second-color;
   }
 }

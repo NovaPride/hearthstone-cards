@@ -1,12 +1,14 @@
+@import "../../style/variables.scss";
+
 .header{
   width: 100%;
   height: auto;
-  background-color: #000000;
+  background-color: $darker-bg;
   padding: 0.5rem 0 1.2rem;
   display: flex;
   justify-content: center;
   &_logo{
-    color: #fffdfd;
+    color: $text-color;
     width: 23rem;
     height: 7.8rem;
     margin-right: 10%;
@@ -26,13 +28,13 @@
       display: block;
       &_link{
         display: block;
-        color: #fff;
+        color: $text-color;
         font-size: 2.4rem;
         padding: 0 2rem;
         transition: 0.3s all;
         &:hover{
           transform: translateY(-5%);
-          color: #f18928;
+          color: $main-color;
         }
       }
     }

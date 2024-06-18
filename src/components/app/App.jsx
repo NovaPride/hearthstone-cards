@@ -4,7 +4,7 @@ import Header from "../header/header";
 
 import MainPage from "../../pages/main-page/main-page";
 
-import "./app.css";
+import "./app.scss";
 
 const App = () => {
   return (
