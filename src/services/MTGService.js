@@ -22,6 +22,20 @@ export const useMTGService = () => {
   //   nigger();
   // }, []);
 
+
+  //https://scryfall.com/docs/api/cards/search
+  // const aboba = async (page = 1, perPage = 96) => {
+  //   const res = await request(`https://api.scryfall.com/cards/search?order=cmc&q=c%3Ared+pow%3D3`);
+  //   console.log(res)
+  //   // return res.cards.map(_transformCard);
+  // }
+
+  const getCardByName = async (name) => {
+    const res = await request(`${_apiBase}/cards?contains=imageUrl&name=${name}`);
+    return res;
+    // return res.cards.map(_transformCard);
+  }
+
   const getCards = async (page = 1, perPage = 96) => {
     const res = await request(`${_apiBase}/cards?contains=imageUrl&pageSize=${perPage}&page=${page}`);
     return res.cards;
@@ -69,22 +83,22 @@ export const useMTGService = () => {
   //   }
   // }
 
-  const _transformCard = ({ 
-    id, 
-    multiverseid, 
-    name, 
-    imageUrl, 
-    artist 
+  const _transformCard = ({
+    id,
+    multiverseid,
+    name,
+    imageUrl,
+    artist
   }) => ({
     id,
     multiverseid,
     name,
     imageUrl,
-    artist,
+    artist
   });
 
 
 
-  return { loading, error, clearError, getCards }
+  return { loading, error, clearError, getCards, getCardByName }
   // return {loading, error, getCharacter, getCharacterByName, getAllCharacters, getComic, getAllComics, clearError}
 }

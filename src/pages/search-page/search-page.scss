@@ -1,0 +1,46 @@
+@import "../../style/variables.scss";
+
+.search_page {
+  font-family: Beleren SmallCaps;
+  color: $text-color;
+  padding: 8rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search_form {
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input {
+    &:focus {
+      outline: none;
+      box-shadow: 2px 4px 25px 7px $main-color;
+    }
+  }
+  &_elem {
+    display: flex;
+    align-items: center;
+  }
+  &_name {
+    padding: 0 1rem;
+    font-family: Roboto;
+    font-weight: 500;
+    width: 50rem;
+    height: 3rem;
+    border: none;
+  }
+  &_submit {
+    color: $text-color;
+    font-size: 2rem;
+    font-family: Beleren SmallCaps;
+    margin-left: 2rem;
+    width: 10rem;
+    height: 3.6rem;
+    border: none;
+    background: $alter-button-color;
+    // transform: translateY(-2px);
+  }
+}

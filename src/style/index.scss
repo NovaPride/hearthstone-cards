@@ -16,6 +16,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  &::spelling-error {
+    outline: none;
+  }
+  &::selection {
+    color: $text-color;
+    background-color: $main-color;
+  }
+}
+
 a {
   font-weight: 500;
   color: $link-color;
@@ -61,4 +71,8 @@ button {
   &:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
+}
+
+input {
+  transition: 0.3s all;
 }
