@@ -10,6 +10,7 @@
 }
 
 .search_form {
+  position: relative;
   color: $text-color;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,7 @@
     width: 50rem;
     height: 3rem;
     border: none;
+    font-size: 1.4rem;
   }
   &_submit {
     color: $text-color;
@@ -43,4 +45,31 @@
     background: $alter-button-color;
     // transform: translateY(-2px);
   }
+}
+
+.card_modal {
+  position: absolute;
+  margin: 0;
+  z-index: 10;
+  transform: translate(-6rem, 3.6rem);
+  background-color: #fff;
+  width: 52rem;
+  a {
+    font-weight: 400;
+  }
+  &_elem{
+    &_wrapper{
+      color: #000;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+      font-family: Roboto;
+      font-size: 1.4rem;
+      span {
+        font-weight: 500;
+      }
+    }
+    
+  }
+  
 }

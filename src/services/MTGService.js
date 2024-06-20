@@ -32,7 +32,7 @@ export const useMTGService = () => {
 
   const getCardByName = async (name) => {
     const res = await request(`${_apiBase}/cards?contains=imageUrl&name=${name}`);
-    return res;
+    return res.cards;
     // return res.cards.map(_transformCard);
   }
 
