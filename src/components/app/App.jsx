@@ -5,6 +5,7 @@ import Footer from "../footer/footer";
 
 import MainPage from "../../pages/main-page/main-page";
 import SearchPage from "../../pages/search-page/search-page";
+import SingleCardPage from "../../pages/single-card-page/single-card-page";
 import BuildPage from "../../pages/build-page/build-page";
 import Page404 from "../../pages/page404/page404";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/card/:multiverseid" element={<SingleCardPage />} />
           <Route path="/build" element={<BuildPage />} />
           <Route path="*" element={<Page404 />} />
           {/* />

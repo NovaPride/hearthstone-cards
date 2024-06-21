@@ -1,0 +1,10 @@
+@import "../../style/variables.scss";
+
+.single_card_page {
+  font-family: Beleren SmallCaps;
+  color: $text-color;
+  padding: 8rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

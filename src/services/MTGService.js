@@ -41,9 +41,9 @@ export const useMTGService = () => {
     return res.cards;
   }
 
-  const getCardByName = async (name) => {
-    const res = await request(`${_apiBase}/cards?contains=imageUrl&name=${name}`);
-    return res.cards;
+  const getCardById = async (id) => {
+    const res = await request(`${_apiBase}/cards?contains=imageUrl&multiverseid=${id}`);
+    return res.cards[0];
     // return res.cards.map(_transformCard);
   }
 
@@ -110,6 +110,6 @@ export const useMTGService = () => {
 
 
 
-  return { loading, error, clearError, getCards, getSearched, getCardByName }
+  return { loading, error, clearError, getCards, getCardById, getSearched }
   // return {loading, error, getCharacter, getCharacterByName, getAllCharacters, getComic, getAllComics, clearError}
 }
