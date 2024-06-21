@@ -20,32 +20,32 @@ export default SearchPage;
 
 const SearchForm = () => {
   const [searchText, setSearchText] = useState("");
+  const [searchType, setSearchType] = useState("name");
   const [cards, setCards] = useState([]);
   const [searchTextDebounceValue] = useDebounce(searchText, 333);
   const [isModal, setIsModal] = useState(false);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  const { loading, error, getCardByName, clearError } = useMTGService();
+  const { loading, error, getSearched, clearError } = useMTGService();
 
   const onSubmit = async (data) => {
-    // const temp = await getCardByName(data.cardName);
-    // console.log(cards);
-    console.log(data);
+    const temp = await getSearched(data);
+    console.log(temp);
+
     //сюда как то получить строку для запроса к апи и перейти на страницу где вывядятся все подходящие
     // navigate("/казахстан");
   };
 
   const elasticSearch = async (text) => {
-    getCardByName(text).then((data) => {
+    getSearched({ searchType: searchType, searchText: text }).then((data) => {
       setCards(data);
     });
   };
 
   useEffect(() => {
-    if (searchTextDebounceValue.length > 2) {
+    if (searchTextDebounceValue.length > 2)
       elasticSearch(searchTextDebounceValue);
-    }
   }, [searchTextDebounceValue]);
 
   const modal = isModal ? (
@@ -55,7 +55,7 @@ const SearchForm = () => {
   );
 
   //register re-writes onBlur, onChange, value and name. so u need do to this stuff
-  const { onBlur, onChange, ...fieldProps } = register("cardName", {
+  const { onBlur, onChange, ...fieldProps } = register("searchText", {
     required: true,
   });
 
@@ -67,7 +67,8 @@ const SearchForm = () => {
           autoComplete="off"
           value={searchText}
           onFocus={() => setIsModal(true)}
-          onBlur={(e) => {
+          onBlur={async (e) => {
+            await new Promise((resolve) => setTimeout(resolve, 270));
             setIsModal(false);
             onBlur(e);
           }}
@@ -93,6 +94,7 @@ const SearchForm = () => {
                 value="name"
                 id="searchType-name"
                 className="search_form_grid_column_elem_radio"
+                onChange={(e) => setSearchType(e.target.value)}
                 defaultChecked={true}
               />
               Name
@@ -101,9 +103,10 @@ const SearchForm = () => {
               <input
                 {...register("searchType")}
                 type="radio"
-                value="multiId"
+                value="multiverseid"
                 id="searchType-multiId"
                 className="search_form_grid_column_elem_radio"
+                onChange={(e) => setSearchType(e.target.value)}
               />
               MultiId
             </label>
@@ -114,6 +117,7 @@ const SearchForm = () => {
                 value="smth"
                 id="searchType-smth"
                 className="search_form_grid_column_elem_radio"
+                onChange={(e) => setSearchType(e.target.value)}
               />
               Smth
             </label>
@@ -127,7 +131,7 @@ const SearchForm = () => {
               <input
                 {...register("mana")}
                 type="checkbox"
-                value="white"
+                value="W"
                 id="mana-white"
                 className="search_form_grid_column_elem_checkbox"
               />
@@ -137,7 +141,7 @@ const SearchForm = () => {
               <input
                 {...register("mana")}
                 type="checkbox"
-                value="blue"
+                value="U"
                 id="mana-blue"
                 className="search_form_grid_column_elem_checkbox"
               />
@@ -147,7 +151,7 @@ const SearchForm = () => {
               <input
                 {...register("mana")}
                 type="checkbox"
-                value="black"
+                value="B"
                 id="mana-black"
                 className="search_form_grid_column_elem_checkbox"
               />
@@ -157,7 +161,7 @@ const SearchForm = () => {
               <input
                 {...register("mana")}
                 type="checkbox"
-                value="red"
+                value="R"
                 id="mana-red"
                 className="search_form_grid_column_elem_checkbox"
               />
@@ -167,7 +171,7 @@ const SearchForm = () => {
               <input
                 {...register("mana")}
                 type="checkbox"
-                value="green"
+                value="G"
                 id="mana-green"
                 className="search_form_grid_column_elem_checkbox"
               />

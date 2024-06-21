@@ -30,6 +30,17 @@ export const useMTGService = () => {
   //   // return res.cards.map(_transformCard);
   // }
 
+  const getSearched = async ({ searchType = "", searchText = "", mana = [] }) => {
+    const baseSearchValue = {
+      "name": `&name=${searchText}`,
+      "multiverseid": `&multiverseid=${searchText}`,
+      "": "",
+    }[searchType];
+    const colors = Object.keys(mana).length ? `&colors="${mana.toString()}"` : "";
+    const res = await request(`${_apiBase}/cards?contains=imageUrl${baseSearchValue}${colors}`);
+    return res.cards;
+  }
+
   const getCardByName = async (name) => {
     const res = await request(`${_apiBase}/cards?contains=imageUrl&name=${name}`);
     return res.cards;
@@ -99,6 +110,6 @@ export const useMTGService = () => {
 
 
 
-  return { loading, error, clearError, getCards, getCardByName }
+  return { loading, error, clearError, getCards, getSearched, getCardByName }
   // return {loading, error, getCharacter, getCharacterByName, getAllCharacters, getComic, getAllComics, clearError}
 }
