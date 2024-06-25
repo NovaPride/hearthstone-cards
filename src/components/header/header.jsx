@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import magic_logo from "../../assets/img/magic_logo.png";
+import { Magic_Logo } from "../../assets/img";
 
 import "./header.scss";
 
@@ -10,7 +10,7 @@ const Header = () => {
       <div className="header_wrapper">
         <Link to="/" className="header_logo">
           <img
-            src={magic_logo}
+            src={Magic_Logo}
             alt="Magic the gathering logo"
             className="header_logo_image"
           />

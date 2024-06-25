@@ -3,8 +3,34 @@
 .single_card_page {
   font-family: Beleren SmallCaps;
   color: $text-color;
-  padding: 8rem 0 2rem;
+  padding: 6rem 0 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -666;
+    background: url("../../assets/img/tavern-table-bg.jpg") no-repeat center
+      center / cover;
+    opacity: 0.42;
+  }
+}
+
+.card_wrapper {
+  display: flex;
+  align-items: center;
+  background-color: pink;
+  padding: 5rem;
+  height: 48rem;
+  gap: 2rem;
+  &_elem {
+    height: 100%;
+    aspect-ratio: 5 / 7;
+    background-color: aqua;
+  }
 }

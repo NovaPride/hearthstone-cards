@@ -5,7 +5,7 @@ import { useDebounce } from "use-debounce";
 
 import { useMTGService } from "../../services/MTGService";
 
-import mana from "../../assets/img/mana/mana";
+import mana from "../../assets/img/mana";
 
 import "./search-form.scss";
 

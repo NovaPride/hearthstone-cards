@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Tilt from "react-parallax-tilt";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { CardImage } from "../../components/card";
 import { useMTGService } from "../../services/MTGService";
 
 import "./cards-wrapper.scss";
@@ -63,8 +64,8 @@ const SkeletonLoading = () => {
   for (let i = 0; i < 96; i++) {
     temp.push(
       <li key={i} className="cards_wrapper_card">
-        <div className="cards_wrapper_card_loading">
-          <div className="cards_wrapper_card_loading_inner" />
+        <div className="card_image_loading">
+          <div className="card_image_loading_inner" />
         </div>
       </li>
     );
@@ -78,44 +79,11 @@ const View = ({ cards }) => {
   return cards.map(({ id, name, imageUrl }) => {
     return (
       <li key={id} className="cards_wrapper_card">
-        <ImageComponent src={imageUrl} alt={name} />
+        <CardImage src={imageUrl} alt={name} />
       </li>
     );
   });
 };
 View.propTypes = {
   cards: PropTypes.array,
-};
-
-const ImageComponent = ({ src, alt }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const image = new Image();
-    image.src = src;
-    image.onload = () => {
-      setIsLoaded(true);
-    };
-  }, [src]);
-
-  return (
-    <>
-      {isLoaded ? (
-        <Tilt
-          className="cards_wrapper_card_tilt"
-          tiltReverse={true}
-          scale={1.05}>
-          <img className="cards_wrapper_card_image" src={src} alt={alt} />
-        </Tilt>
-      ) : (
-        <div className="cards_wrapper_card_loading">
-          <div className="cards_wrapper_card_loading_inner cards_wrapper_card_loading_inner_colored" />
-        </div>
-      )}
-    </>
-  );
-};
-ImageComponent.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
 };
