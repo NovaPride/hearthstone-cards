@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Tilt from "react-parallax-tilt";
 import InfiniteScroll from "react-infinite-scroll-component";
-
 import { CardImage } from "../../components/card";
 import { useMTGService } from "../../services/MTGService";
 
@@ -72,14 +72,16 @@ const SkeletonLoading = () => {
   }
   return temp;
 };
-
+//multiverseid
 const View = ({ cards }) => {
   if (Object.keys(cards).length === 0) return <></>;
-
-  return cards.map(({ id, name, imageUrl }) => {
+  console.log(cards);
+  return cards.map(({ id, name, imageUrl, multiverseid }) => {
     return (
       <li key={id} className="cards_wrapper_card">
-        <CardImage src={imageUrl} alt={name} />
+        <Link to={"/card/" + multiverseid}>
+          <CardImage src={imageUrl} alt={name} />
+        </Link>
       </li>
     );
   });

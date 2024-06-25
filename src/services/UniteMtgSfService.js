@@ -18,7 +18,6 @@ export const useUniteMtgSfService = () => {
     const {
       name,
       manaCost,
-      cmc,
       colors,
       type,
       rarity,
@@ -36,7 +35,6 @@ export const useUniteMtgSfService = () => {
       text,
       originalText,
       manaCost,
-      cmc,
       colors,
       type,
       rarity,

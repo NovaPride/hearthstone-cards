@@ -1,5 +1,41 @@
 @import "../../../style/variables.scss";
 
 .card_description {
- 
+  height: calc(100% - 1rem);
+  width: 100%;
+  background-color: $darker-bg;
+  border-radius: 0.69rem;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  &_wrapper {
+    width: 100%;
+    height: 100%;
+    &_elem {
+      font-family: Roboto;
+      background-color: $lighter-bg;
+      margin: 0.2rem 0;
+      padding: 0.1rem 1.5rem;
+      font-size: 1.8rem;
+      color: $alter-text-color;
+      display: flex;
+      gap: 1rem;
+      &_mana {
+        display: flex;
+        align-items: center;
+      }
+      &_text {
+        pre {
+          font-size: 1.8rem;
+          font-family: Roboto;
+          text-wrap: wrap;
+        }
+      }
+      &_artist {
+        font-style: Italic;
+        font-family: Roboto;
+        font-weight: 300;
+        font-size: 0.8em;
+      }
+    }
+  }
 }
