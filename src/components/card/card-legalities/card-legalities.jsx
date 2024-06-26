@@ -5,11 +5,6 @@ import "./card-legalities.scss";
 const CardLegalities = ({ legalities }) => {
   const [data, setData] = useState([]);
 
-  const myComponents = [
-    <div>Компонент 1</div>,
-    <p>Компонент 2</p>,
-    <button>Компонент 3</button>,
-  ];
   useEffect(() => {
     const temp = [];
     for (const [key, value] of Object.entries(legalities)) {
@@ -49,42 +44,6 @@ const CardLegalities = ({ legalities }) => {
   return (
     <div className="card_legalities">
       {data}
-      {/* <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">oathbreaker</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">paupercommander</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div>
-      <div className="card_legalities_elem">
-        <div className="card_legalities_elem_name">Standart</div>
-      </div> */}
     </div>
   );
 };

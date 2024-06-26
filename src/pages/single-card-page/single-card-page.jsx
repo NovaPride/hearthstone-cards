@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { CardImage, CardDescription, CardInfo, CardPrices } from "../../components/card";
+import { CardImage, CardDescription, CardInfo, CardPrices, CardPurchase } from "../../components/card";
 
 import { useUniteMtgSfService } from "../../services/UniteMtgSfService";
 
@@ -55,6 +55,7 @@ const View = ({ card }) => {
       <div className="card_wrapper_elem card_wrapper_image">
         <CardInfo card={card}/>
         <CardPrices prices={prices}/>
+        <CardPurchase purchase_uris={purchase_uris}/>
       </div>
     </div>
   );

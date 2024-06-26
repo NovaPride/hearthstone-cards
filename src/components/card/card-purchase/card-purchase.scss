@@ -1,0 +1,27 @@
+@import "../../../style/variables.scss";
+
+.card_purchase {
+  height: calc(100% - 1rem);
+  margin-bottom: 1.6rem;
+  width: 100%;
+  background-color: $darker-bg;
+  border-radius: 0.69rem;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  font-size: 2.4rem;
+  &_elem {
+    font-family: Roboto;
+    background-color: $lighter-bg;
+
+    padding: 0.1rem 1.5rem;
+    font-size: 2.2rem;
+    color: $alter-text-color;
+    display: flex;
+    gap: 1rem;
+    line-height: 2.8rem;
+    &_usd, &_eur{
+      font-size: 2rem;
+      padding-left: 1rem;
+    }
+  }
+}
