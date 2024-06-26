@@ -38,7 +38,7 @@ const CardLegalities = ({ legalities }) => {
         vintage: "Vintage",
       }[key];
       temp.push(
-        <div className="card_legalities_elem">
+        <div key={key} className="card_legalities_elem">
           <div className={"card_legalities_elem_name card_legalities_elem_status_" + value}>{name}</div>
         </div>
       );

@@ -1,7 +1,6 @@
 import { useMTGService } from "./MTGService";
 import { useScryfallService } from "./ScryfallService";
 
-
 export const useUniteMtgSfService = () => {
   const MTGService = useMTGService();
   const SFService = useScryfallService();
@@ -20,35 +19,48 @@ export const useUniteMtgSfService = () => {
       manaCost,
       colors,
       type,
-      rarity,
-      set,
-      setName,
       text,
       artist,
       originalText,
       multiverseid,
     } = await MTGService.getCardById(id);
-    const { released_at, image_uris, legalities, prices, purchase_uris } =
-      await SFService.getCardById(id);
+    const {
+      released_at,
+      image_uris,
+      legalities,
+      prices,
+      purchase_uris,
+      power,
+      toughness,
+      rarity,
+      set,
+      set_name,
+      foil,
+      nonfoil,
+    } = await SFService.getCardById(id);
     return {
       name,
-      text,
-      originalText,
       manaCost,
       colors,
       type,
-      rarity,
-      set,
-      setName,
+      text,
       artist,
+      originalText,
       multiverseid,
       released_at,
       image_uris,
       legalities,
       prices,
       purchase_uris,
+      power,
+      toughness,
+      rarity,
+      set,
+      set_name,
+      foil,
+      nonfoil,
     };
   }
 
-  return { loading, error, clearError, getCardById }
-}
+  return { loading, error, clearError, getCardById };
+};

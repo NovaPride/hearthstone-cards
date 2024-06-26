@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { CardImage, CardDescription } from "../../components/card";
+import { CardImage, CardDescription, CardInfo } from "../../components/card";
 
 import { useUniteMtgSfService } from "../../services/UniteMtgSfService";
 
@@ -53,7 +53,7 @@ const View = ({ card }) => {
         <CardDescription card={card} />
       </div>
       <div className="card_wrapper_elem card_wrapper_image">
-        <CardImage src={image_uris.png} alt={name} scale={1.2} />
+        <CardInfo card={card}/>
       </div>
     </div>
   );

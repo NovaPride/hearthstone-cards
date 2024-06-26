@@ -21,6 +21,9 @@
       display: flex;
       gap: 1rem;
       justify-content: space-between;
+      &_name, &_type, &_hp{
+        font-weight: 500;
+      }
       &_mana {
         display: flex;
         align-items: center;
