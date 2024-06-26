@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { CardImage, CardDescription, CardInfo } from "../../components/card";
+import { CardImage, CardDescription, CardInfo, CardPrices } from "../../components/card";
 
 import { useUniteMtgSfService } from "../../services/UniteMtgSfService";
 
@@ -43,7 +43,7 @@ export default SingleCardPage;
 const View = ({ card }) => {
   if (Object.keys(card).length === 0) return <></>;
   console.log(card);
-  const { name, image_uris } = card;
+  const { name, image_uris, prices, purchase_uris } = card;
   return (
     <div className="card_wrapper">
       <div className="card_wrapper_elem card_wrapper_image">
@@ -54,6 +54,7 @@ const View = ({ card }) => {
       </div>
       <div className="card_wrapper_elem card_wrapper_image">
         <CardInfo card={card}/>
+        <CardPrices prices={prices}/>
       </div>
     </div>
   );
