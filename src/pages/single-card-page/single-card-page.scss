@@ -17,20 +17,24 @@
     z-index: -666;
     background: url("../../assets/img/tavern-table-bg.jpg") no-repeat center
       center / cover;
-    opacity: 0.42;
+    opacity: 0.22;
   }
 }
 
 .card_wrapper {
-  display: flex;
-  align-items: center;
-  background-color: pink;
+  display: grid;
+  grid-template-columns: 10fr 10fr 10fr;
+  align-items: flex-start;
+  // background-color: pink;
   padding: 5rem;
-  height: 48rem;
+  width: auto;
+  height: auto;
   gap: 2rem;
-  &_elem {
-    height: 100%;
-    aspect-ratio: 5 / 7;
-    background-color: aqua;
+  &_image{
+    z-index: 10;
+  }
+  &_description{
+    z-index: 5;
+    transform: translateY(1.5rem);
   }
 }

@@ -23,13 +23,15 @@ const CardDescription = ({ card }) => {
     type,
   } = card;
 
+  const manaView = manaCost ? <MtgSymbols symbols={manaCost} />: null;
+
   return (
     <div className="card_description">
       <div className="card_description_wrapper">
         <div className="card_description_wrapper_elem">
           <div className="card_description_wrapper_elem_name">{name}</div>
           <div className="card_description_wrapper_elem_mana">
-            <MtgSymbols symbols={manaCost} />
+            {manaView}
           </div>
         </div>
         <div className="card_description_wrapper_elem">
@@ -37,7 +39,7 @@ const CardDescription = ({ card }) => {
         </div>
         <div className="card_description_wrapper_elem">
           <div className="card_description_wrapper_elem_text">
-            <pre>{originalText}</pre>
+            <pre>{text}</pre>
           </div>
         </div>
         <div className="card_description_wrapper_elem">

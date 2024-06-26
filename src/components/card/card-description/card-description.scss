@@ -2,6 +2,7 @@
 
 .card_description {
   height: calc(100% - 1rem);
+  margin-bottom: 1.6rem;
   width: 100%;
   background-color: $darker-bg;
   border-radius: 0.69rem;
@@ -19,9 +20,11 @@
       color: $alter-text-color;
       display: flex;
       gap: 1rem;
+      justify-content: space-between;
       &_mana {
         display: flex;
         align-items: center;
+        gap: 0.4rem;
       }
       &_text {
         pre {

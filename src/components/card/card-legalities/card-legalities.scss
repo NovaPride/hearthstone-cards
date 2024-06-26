@@ -2,15 +2,48 @@
 
 .card_legalities {
   width: 100%;
-  height: 200px;
+  height: auto;
+  padding: 1rem 0;
   display: grid;
   align-items: center;
   justify-items: center;
+  align-content: center;
   grid-template-columns: 1fr 1fr;
-  gap: 0.2rem;
-  &_elem{
-    background-color: aqua;
+  grid-auto-rows: 2.4rem;
+  gap: 0.4rem 1rem;
+
+  &_elem {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.3rem;
+    overflow: hidden;
     width: 100%;
-    height: 100%;
+    height: auto;
+    &_name {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    &_status {
+      font-family: Roboto;
+      &_legal {
+        background-color: #72b266;
+        color: #fff;
+      }
+      &_not_legal {
+        background-color: #c0c0c0;
+        color: #000;
+        text-decoration: line-through;
+      }
+      &_restricted {
+        background-color: #ede727;
+        color: #000000;
+      }
+      &_banned {
+        background-color: #d77474;
+        color: #000;
+      }
+    }
   }
 }

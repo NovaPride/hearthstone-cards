@@ -46,13 +46,14 @@ const View = ({ card }) => {
   const { name, image_uris } = card;
   return (
     <div className="card_wrapper">
-      <div className="card_wrapper_elem"></div>
-
-      <div className="card_wrapper_elem">
+      <div className="card_wrapper_elem card_wrapper_image">
         <CardImage src={image_uris.png} alt={name} scale={1.2} />
       </div>
-      <div className="card_wrapper_elem">
-        <CardDescription card={card}/>
+      <div className="card_wrapper_elem card_wrapper_description">
+        <CardDescription card={card} />
+      </div>
+      <div className="card_wrapper_elem card_wrapper_image">
+        <CardImage src={image_uris.png} alt={name} scale={1.2} />
       </div>
     </div>
   );
