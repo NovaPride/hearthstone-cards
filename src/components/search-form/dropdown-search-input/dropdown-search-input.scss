@@ -1,0 +1,46 @@
+@import "../../../style/variables.scss";
+
+.dropdown_search_input {
+  padding: 0 1rem;
+  color: $alter-text-color;
+  font-family: Roboto;
+  font-weight: 500;
+  width: 50rem;
+  height: 3rem;
+  border: none;
+  font-size: 1.4rem;
+  &:focus {
+    outline: none;
+    box-shadow: 2px 4px 25px 7px $main-color;
+  }
+}
+
+.dropdown_search {
+  position: absolute;
+  margin: 0;
+  z-index: 10;
+  transform: translateY(0.5rem);
+  background-color: #fff;
+  width: 52rem;
+  transition: 0.3s all;
+  a {
+    font-weight: 400;
+  }
+  &_elem {
+    &_wrapper {
+      color: #000;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+      font-family: Roboto;
+      font-size: 1.4rem;
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+  &_hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

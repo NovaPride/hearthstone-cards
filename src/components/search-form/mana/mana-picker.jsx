@@ -1,5 +1,5 @@
 import ManaCheckbox from "./mana-checkbox";
-import mana from "../../assets/img/mana";
+import mana from "../../../assets/img/mana";
 
 const ManaPicker = ({ register }) => {
   return (
