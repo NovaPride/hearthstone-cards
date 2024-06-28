@@ -1,4 +1,4 @@
-const SearchTypeRadiobtn = ({ type, register, setSearchType }) => {
+const SearchTypeRadiobtn = ({ type, register, ...props }) => {
   if (!type || !register) {
     console.error("You missed some props!");
     return <></>;
@@ -12,12 +12,12 @@ const SearchTypeRadiobtn = ({ type, register, setSearchType }) => {
   return (
     <label htmlFor={"searchType-" + type}>
       <input
+        {...props}
         {...register("searchType")}
         type="radio"
         value={type}
         id={"searchType-" + type}
         className="search_form_grid_column_elem_radio"
-        onChange={(e) => setSearchType(e.target.value)}
       />
       {text}
     </label>

@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import "./build-page.scss";
 
 const BuildPage = () => {
