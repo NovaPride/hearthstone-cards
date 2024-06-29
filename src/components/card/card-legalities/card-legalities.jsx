@@ -34,18 +34,19 @@ const CardLegalities = ({ legalities }) => {
       }[key];
       temp.push(
         <div key={key} className="card_legalities_elem">
-          <div className={"card_legalities_elem_name card_legalities_elem_status_" + value}>{name}</div>
+          <div
+            className={
+              "card_legalities_elem_name card_legalities_elem_status_" + value
+            }>
+            {name}
+          </div>
         </div>
       );
     }
     setData(temp);
   }, [legalities]);
 
-  return (
-    <div className="card_legalities">
-      {data}
-    </div>
-  );
+  return <div className="card_legalities">{data}</div>;
 };
 
 export default CardLegalities;

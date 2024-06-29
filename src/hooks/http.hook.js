@@ -11,7 +11,6 @@ const useHttp = () => {
       if (!response.ok) throw new Error(`Couldn't fetch ${url}, status: ${response.status}`);
       const data = await response.json();
       setLoading(false);
-      // setError(trye);
       return data;
     } catch (e) {
       setLoading(false);

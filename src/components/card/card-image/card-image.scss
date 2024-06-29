@@ -30,14 +30,10 @@
     border-radius: 1rem;
     height: 100%;
     aspect-ratio: 5/7;
-    // height: 31rem;
-    // width: 22.3rem;
     background-color: $card-loading-border-color;
     &_inner {
       height: 92%;
       aspect-ratio: 5/7;
-      // height: 28.5rem;
-      // width: 20rem;
       animation: skeleton-loading 0.8s linear infinite alternate;
       &_colored {
         animation: skeleton-loading-colored 0.8s linear infinite alternate;

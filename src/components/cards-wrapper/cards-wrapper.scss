@@ -7,7 +7,6 @@
   min-width: 12rem;
   min-height: 15rem;
   display: grid;
-  // grid-template-columns: repeat(6, auto);
   grid-template-columns: repeat(auto-fit, minmax(22.3rem, auto));
   grid-auto-rows: 31rem;
   grid-auto-flow: row dense;

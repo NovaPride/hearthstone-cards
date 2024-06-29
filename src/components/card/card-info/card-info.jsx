@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import "./card-info.scss";
 
 const CardInfo = ({ card }) => {
@@ -32,7 +30,10 @@ const CardInfo = ({ card }) => {
         {setView}
       </div>
       <div className="card_info_elem">{releaseAtView}</div>
-      <div className="card_info_elem">{rarityView}{foilView}</div>
+      <div className="card_info_elem">
+        {rarityView}
+        {foilView}
+      </div>
     </div>
   );
 };

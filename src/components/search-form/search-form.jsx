@@ -9,7 +9,6 @@ import ManaPicker from "./mana/mana-picker";
 import "./search-form.scss";
 
 const SearchForm = () => {
-  const [cards, setCards] = useState([]);
   const { register, handleSubmit, control, getValues } = useForm();
   //const navigate = useNavigate();
   console.log();
@@ -24,12 +23,7 @@ const SearchForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="search_form">
       <div className="search_form_elem">
-        <DropDownSearchInput
-          cards={cards}
-          setCards={setCards}
-          control={control}
-          getValues={getValues}
-        />
+        <DropDownSearchInput control={control} getValues={getValues} />
         <input value="SEARCH" type="submit" className="search_form_submit" />
       </div>
       <div className="search_form_grid">

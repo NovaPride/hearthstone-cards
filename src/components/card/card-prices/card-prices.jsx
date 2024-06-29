@@ -1,7 +1,7 @@
 import "./card-prices.scss";
 
 const CardPrices = ({ prices }) => {
-  if (!prices) return <></>
+  if (!prices) return <></>;
   const { usd, usd_foil, eur, eur_foil } = prices;
 
   const pricesView = prices ? (

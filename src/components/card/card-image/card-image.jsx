@@ -18,10 +18,7 @@ const CardImage = ({ src, alt, scale = 1.05 }) => {
   return (
     <>
       {isLoaded ? (
-        <Tilt
-          className="card_image_tilt"
-          tiltReverse={true}
-          scale={scale}>
+        <Tilt className="card_image_tilt" tiltReverse={true} scale={scale}>
           <img className="card_image_img" src={src} alt={alt} />
         </Tilt>
       ) : (

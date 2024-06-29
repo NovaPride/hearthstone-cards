@@ -30,10 +30,10 @@
   width: auto;
   height: auto;
   gap: 2rem;
-  &_image{
+  &_image {
     z-index: 10;
   }
-  &_description{
+  &_description {
     z-index: 5;
     transform: translateY(1.5rem);
   }

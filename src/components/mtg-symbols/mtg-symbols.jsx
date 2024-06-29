@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import "./mtg-symbols.scss";
 
 const MtgSymbols = ({ symbols }) => {

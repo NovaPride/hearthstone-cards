@@ -14,8 +14,6 @@ import { useUniteMtgSfService } from "../../services/UniteMtgSfService";
 
 import "./single-card-page.scss";
 
-//рендеров много, init, обновление mtg, обновление sf, рендер unite с готовыми данными
-//skill issue
 
 const SingleCardPage = () => {
   const [card, setCard] = useState({});

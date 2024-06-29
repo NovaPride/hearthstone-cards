@@ -7,7 +7,8 @@ import DropDown from "./dropdown";
 
 import "./dropdown-search-input.scss";
 
-const DropDownSearchInput = ({ cards, setCards, control, getValues }) => {
+const DropDownSearchInput = ({ control, getValues }) => {
+  const [cards, setCards] = useState([]);
   const { loading, getSearched } = useMTGService();
   const { field } = useController({
     name: "searchText",

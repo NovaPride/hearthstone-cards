@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import CardLegalities from "../card-legalities/card-legalities";
 import MtgSymbols from "../../mtg-symbols/mtg-symbols";
 
@@ -11,8 +9,6 @@ const CardDescription = ({ card }) => {
     legalities,
     manaCost,
     name,
-    prices,
-    purchase_uris,
     text,
     type,
     power,

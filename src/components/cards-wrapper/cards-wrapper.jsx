@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-
-import Tilt from "react-parallax-tilt";
 import InfiniteScroll from "react-infinite-scroll-component";
+
 import { CardImage } from "../../components/card";
 import { useMTGService } from "../../services/MTGService";
 
@@ -39,7 +37,7 @@ const CardWrapper = () => {
 
   return (
     <InfiniteScroll
-      dataLength={cards.length} //This is important field to render the next data
+      dataLength={cards.length}
       next={onLoadMore}
       hasMore={true}
       loader={<div className="cards_wrapper_card_loadtext">Loading...</div>}
@@ -72,10 +70,9 @@ const SkeletonLoading = () => {
   }
   return temp;
 };
-//multiverseid
+
 const View = ({ cards }) => {
   if (Object.keys(cards).length === 0) return <></>;
-  console.log(cards);
   return cards.map(({ id, name, imageUrl, multiverseid }) => {
     return (
       <li key={id} className="cards_wrapper_card">
@@ -85,7 +82,4 @@ const View = ({ cards }) => {
       </li>
     );
   });
-};
-View.propTypes = {
-  cards: PropTypes.array,
 };
