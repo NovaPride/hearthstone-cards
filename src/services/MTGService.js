@@ -26,19 +26,19 @@ export const useMTGService = () => {
     return res.cards;
   }
 
-  // const _transformCard = ({
-  //   id,
-  //   multiverseid,
-  //   name,
-  //   imageUrl,
-  //   artist
-  // }) => ({
-  //   id,
-  //   multiverseid,
-  //   name,
-  //   imageUrl,
-  //   artist
-  // });
+  const _transformCard = ({
+    id,
+    multiverseid,
+    name,
+    imageUrl,
+    artist
+  }) => ({
+    id,
+    multiverseid,
+    name,
+    imageUrl,
+    artist
+  });
 
   return { loading, error, clearError, getCards, getCardById, getSearched }
 }

@@ -10,19 +10,19 @@ export const useScryfallService = () => {
     return res;
   }
 
-  // const _transformCard = ({
-  //   id,
-  //   multiverseid,
-  //   name,
-  //   imageUrl,
-  //   artist
-  // }) => ({
-  //   id,
-  //   multiverseid,
-  //   name,
-  //   imageUrl,
-  //   artist
-  // });
+  const _transformCard = ({
+    id,
+    multiverseid,
+    name,
+    imageUrl,
+    artist
+  }) => ({
+    id,
+    multiverseid,
+    name,
+    imageUrl,
+    artist
+  });
 
   return { loading, error, clearError, getCardById }
 }
