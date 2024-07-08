@@ -37,6 +37,7 @@ export const useUniteMtgSfService = () => {
       set_name,
       foil,
       nonfoil,
+      card_faces,
     } = await SFService.getCardById(id);
     return {
       name,
@@ -59,6 +60,7 @@ export const useUniteMtgSfService = () => {
       set_name,
       foil,
       nonfoil,
+      card_faces,
     };
   }
 

@@ -47,11 +47,11 @@ export default SingleCardPage;
 const View = ({ card }) => {
   if (Object.keys(card).length === 0) return <></>;
   console.log(card);
-  const { name, image_uris, prices, purchase_uris } = card;
+  const { name, image_uris, prices, purchase_uris, card_faces } = card;
   return (
     <div className="card_wrapper">
       <div className="card_wrapper_elem card_wrapper_image">
-        <CardImage src={image_uris.png} alt={name} scale={1.2} />
+        <CardImage src={image_uris} alt={name} scale={1.2} />
       </div>
       <div className="card_wrapper_elem card_wrapper_description">
         <CardDescription card={card} />
