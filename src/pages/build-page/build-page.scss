@@ -1,4 +1,12 @@
 @import "../../style/variables.scss";
 
 .build_page {
+  font-family: Beleren SmallCaps;
+  color: $text-color;
+  padding: 8rem 0 2rem;
+  display: grid;
+  grid-template-columns: 2fr 0.8fr;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: start;
 }

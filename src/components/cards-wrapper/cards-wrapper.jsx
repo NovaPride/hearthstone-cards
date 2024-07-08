@@ -7,7 +7,7 @@ import { useMTGService } from "../../services/MTGService";
 
 import "./cards-wrapper.scss";
 
-const CardWrapper = () => {
+const CardWrapper = ({ settings }) => {
   const [cards, setCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const { loading, error, getCards, clearError } = useMTGService();
@@ -33,7 +33,7 @@ const CardWrapper = () => {
 
   const errorMessage = error ? <div>{error.text}</div> : null;
   const skeleton = loading ? <SkeletonLoading /> : null;
-  const content = !error ? <View cards={cards} /> : null;
+  const content = !error ? <View cards={cards} settings={settings} /> : null;
 
   return (
     <InfiniteScroll
@@ -71,15 +71,23 @@ const SkeletonLoading = () => {
   return temp;
 };
 
-const View = ({ cards }) => {
+const View = ({ cards, settings }) => {
   if (Object.keys(cards).length === 0) return <></>;
-  return cards.map(({ id, name, imageUrl, multiverseid }) => {
-    return (
-      <li key={id} className="cards_wrapper_card">
-        <Link to={"/card/" + multiverseid}>
-          <CardImage src={imageUrl} alt={name} />
-        </Link>
-      </li>
-    );
-  });
+  return settings.links
+    ? cards.map(({ id, name, imageUrl, multiverseid }) => {
+        return (
+          <li key={id} className="cards_wrapper_card">
+            <Link to={"/card/" + multiverseid}>
+              <CardImage src={imageUrl} alt={name} />
+            </Link>
+          </li>
+        );
+      })
+    : cards.map(({ id, name, imageUrl, multiverseid }) => {
+        return (
+          <li key={id} className="cards_wrapper_card">
+            <CardImage src={imageUrl} alt={name} />
+          </li>
+        );
+      });
 };

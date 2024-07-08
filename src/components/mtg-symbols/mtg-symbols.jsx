@@ -1,6 +1,7 @@
 import "./mtg-symbols.scss";
 
 const MtgSymbols = ({ symbols }) => {
+  if(typeof symbols !== "string") return
   const symArr = symbols.split(/\{|\}/).filter(Boolean);
   return (
     <>
