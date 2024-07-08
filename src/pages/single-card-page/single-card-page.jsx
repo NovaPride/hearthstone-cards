@@ -56,7 +56,6 @@ const View = ({ card }) => {
         ))}
       </>
     );
-  console.log(image);
   return (
     <div className="card_wrapper">
       <div className="card_wrapper_elem card_wrapper_image">{image}</div>
