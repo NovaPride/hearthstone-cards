@@ -14,7 +14,6 @@ import { useUniteMtgSfService } from "../../services/UniteMtgSfService";
 
 import "./single-card-page.scss";
 
-
 const SingleCardPage = () => {
   const [card, setCard] = useState({});
   const { multiverseid } = useParams();
@@ -46,13 +45,21 @@ export default SingleCardPage;
 
 const View = ({ card }) => {
   if (Object.keys(card).length === 0) return <></>;
-  console.log(card);
   const { name, image_uris, prices, purchase_uris, card_faces } = card;
+  const image =
+    image_uris && !card_faces ? (
+      <CardImage src={image_uris} alt={name} scale={1.2} />
+    ) : (
+      <>
+        {card_faces.map((card) => (
+          <CardImage src={card.image_uris} alt={card.name} scale={1.2} />
+        ))}
+      </>
+    );
+  console.log(image);
   return (
     <div className="card_wrapper">
-      <div className="card_wrapper_elem card_wrapper_image">
-        <CardImage src={image_uris} alt={name} scale={1.2} />
-      </div>
+      <div className="card_wrapper_elem card_wrapper_image">{image}</div>
       <div className="card_wrapper_elem card_wrapper_description">
         <CardDescription card={card} />
       </div>
