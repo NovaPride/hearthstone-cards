@@ -4,21 +4,27 @@ import DeckList from "../deck-list/deck-list";
 
 import "./deck-wrapper.scss";
 
-const DeckWrapper = () => {
+const DeckWrapper = ({draggedCard, setDraggedCard}) => {
   const [cards, setCards] = useState([
-    { name: "urmom1", manaCost: "{5}{W}{W}" },
-    { name: "urmom1" },
-    { name: "urmom2" },
-    { name: "urmom1" },
-    { name: "urmom4" },
-    { name: "urmom1" },
-    { name: "urmom6" },
-    { name: "urmom1dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" },
-    { name: "urmom1" },
+
   ]);
 
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = () => {
+    if (draggedCard) {
+      setCards([...cards, draggedCard]);
+      setDraggedCard(null);
+    }
+  };
+
   return (
-    <div className="deck_wrapper">
+    <div
+      className="deck_wrapper"
+      onDragOver={(e) => handleDragOver(e)}
+      onDrop={handleDrop}>
       <DeckList cards={cards} />
     </div>
   );

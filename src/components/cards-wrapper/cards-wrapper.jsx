@@ -7,7 +7,7 @@ import { useMTGService } from "../../services/MTGService";
 
 import "./cards-wrapper.scss";
 
-const CardWrapper = ({ settings }) => {
+const CardWrapper = ({ settings, setDraggedCard }) => {
   const [cards, setCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const { loading, error, getCards, clearError } = useMTGService();
@@ -33,7 +33,9 @@ const CardWrapper = ({ settings }) => {
 
   const errorMessage = error ? <div>{error.text}</div> : null;
   const skeleton = loading ? <SkeletonLoading /> : null;
-  const content = !error ? <View cards={cards} settings={settings} /> : null;
+  const content = !error ? (
+    <View cards={cards} settings={settings} setDraggedCard={setDraggedCard} />
+  ) : null;
 
   return (
     <InfiniteScroll
@@ -71,21 +73,39 @@ const SkeletonLoading = () => {
   return temp;
 };
 
-const View = ({ cards, settings }) => {
+const View = ({ cards, settings, setDraggedCard }) => {
   if (Object.keys(cards).length === 0) return <></>;
+
+  const handleDragStart = (card) => {
+    setDraggedCard(card);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedCard(null);
+  };
   return settings.links
-    ? cards.map(({ id, name, imageUrl, multiverseid }) => {
+    ? cards.map(({ id, name, imageUrl, manaCost, multiverseid }) => {
         return (
-          <li key={id} className="cards_wrapper_card">
+          <li
+            key={id}
+            className="cards_wrapper_card"
+            draggable
+            onDragStart={() => handleDragStart({id, name, manaCost, imageUrl})}
+            onDragEnd={handleDragEnd}>
             <Link to={"/card/" + multiverseid}>
               <CardImage src={imageUrl} alt={name} />
             </Link>
           </li>
         );
       })
-    : cards.map(({ id, name, imageUrl, multiverseid }) => {
+    : cards.map(({ id, name, imageUrl, manaCost }) => {
         return (
-          <li key={id} className="cards_wrapper_card">
+          <li
+            key={id}
+            className="cards_wrapper_card"
+            draggable
+            onDragStart={() => handleDragStart({id, name, manaCost, imageUrl})}
+            onDragEnd={handleDragEnd}>
             <CardImage src={imageUrl} alt={name} />
           </li>
         );
