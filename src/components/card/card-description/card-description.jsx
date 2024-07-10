@@ -4,16 +4,8 @@ import MtgSymbols from "../../mtg-symbols/mtg-symbols";
 import "./card-description.scss";
 
 const CardDescription = ({ card }) => {
-  const {
-    artist,
-    legalities,
-    manaCost,
-    name,
-    text,
-    type,
-    power,
-    toughness,
-  } = card;
+  const { artist, legalities, manaCost, name, text, type, power, toughness } =
+    card;
 
   const manaView = manaCost ? (
     <div className="card_description_wrapper_elem_mana">

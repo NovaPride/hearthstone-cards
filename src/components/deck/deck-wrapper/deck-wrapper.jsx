@@ -4,10 +4,8 @@ import DeckList from "../deck-list/deck-list";
 
 import "./deck-wrapper.scss";
 
-const DeckWrapper = ({draggedCard, setDraggedCard}) => {
-  const [cards, setCards] = useState([
-
-  ]);
+const DeckWrapper = ({ draggedCard, setDraggedCard }) => {
+  const [cards, setCards] = useState([]);
 
   const handleDragOver = (e) => {
     e.preventDefault();

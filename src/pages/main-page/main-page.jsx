@@ -6,7 +6,7 @@ const MainPage = () => {
   return (
     <>
       <View />
-      <CardWrapper settings={{links: true}}/>
+      <CardWrapper settings={{ links: true }} />
     </>
   );
 };

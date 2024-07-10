@@ -9,8 +9,11 @@ const BuildPage = () => {
 
   return (
     <div className="build_page">
-      <CardWrapper setDraggedCard={setDraggedCard} settings={{ links: false }} />
-      <DeckWrapper draggedCard={draggedCard} setDraggedCard={setDraggedCard}/>
+      <CardWrapper
+        setDraggedCard={setDraggedCard}
+        settings={{ links: false }}
+      />
+      <DeckWrapper draggedCard={draggedCard} setDraggedCard={setDraggedCard} />
     </div>
   );
 };

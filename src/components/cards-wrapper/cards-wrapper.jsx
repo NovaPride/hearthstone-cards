@@ -90,7 +90,9 @@ const View = ({ cards, settings, setDraggedCard }) => {
             key={id}
             className="cards_wrapper_card"
             draggable
-            onDragStart={() => handleDragStart({id, name, manaCost, imageUrl})}
+            onDragStart={() =>
+              handleDragStart({ id, name, manaCost, imageUrl })
+            }
             onDragEnd={handleDragEnd}>
             <Link to={"/card/" + multiverseid}>
               <CardImage src={imageUrl} alt={name} />
@@ -104,7 +106,9 @@ const View = ({ cards, settings, setDraggedCard }) => {
             key={id}
             className="cards_wrapper_card"
             draggable
-            onDragStart={() => handleDragStart({id, name, manaCost, imageUrl})}
+            onDragStart={() =>
+              handleDragStart({ id, name, manaCost, imageUrl })
+            }
             onDragEnd={handleDragEnd}>
             <CardImage src={imageUrl} alt={name} />
           </li>
