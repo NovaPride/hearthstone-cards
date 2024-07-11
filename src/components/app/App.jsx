@@ -22,10 +22,6 @@ const App = () => {
           <Route path="/card/:multiverseid" element={<SingleCardPage />} />
           <Route path="/build" element={<BuildPage />} />
           <Route path="*" element={<Page404 />} />
-          {/* />
-            <Route path="/comics/:comicId" element={<SingleComicPage/>}/>
-            <Route path="/character/:characterId" element={<SingleCharacterPage/>}/>
-            */}
         </Routes>
       </div>
       <Footer />

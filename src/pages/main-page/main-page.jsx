@@ -3,6 +3,7 @@ import CardWrapper from "../../components/cards-wrapper/cards-wrapper";
 import "./main-page.scss";
 
 const MainPage = () => {
+  console.dir(CardWrapper.toString())
   return (
     <>
       <View />

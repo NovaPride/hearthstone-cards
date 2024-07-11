@@ -73,7 +73,7 @@ const SkeletonLoading = () => {
   return temp;
 };
 
-const View = ({ cards, settings, setDraggedCard }) => {
+const View = ({ cards, settings, setDraggedCard = () => {} }) => {
   if (Object.keys(cards).length === 0) return <></>;
 
   const handleDragStart = (card) => {
